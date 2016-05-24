@@ -16,8 +16,12 @@
  */
 package com.yaotrue.framework;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.apache.log4j.Logger;
 import org.junit.Test;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author <a href="mailto:zhen.yao@baozun.cn">zhen.yao</a>
@@ -27,10 +31,13 @@ public class Log4jTest {
 
 	private static final Logger logger = Logger.getLogger(Log4jTest.class);
 	
+	private static final org.slf4j.Logger log = LoggerFactory.getLogger(Log4jTest.class);
+	
 	@Test
 	public void testLog4j(){
 		int i = 2000;
 		while(i>0){
+			log.error("slf4j version:{},now time:{},didadi:{}", "1.7.12",new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()),123);
 			logger.debug("我是一只DEBUG的小青蛙");
 			logger.info("呀呀呀呀呀呀呀~我是Info咿呀呀");
 			logger.warn("动次打次~WARN~");
