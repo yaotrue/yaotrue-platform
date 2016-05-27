@@ -31,5 +31,49 @@
 			<artifactId>quartz-jobs</artifactId>
 			<version>2.2.1</version>
 		</dependency>
+		
+		<!-- http://mvnrepository.com/artifact/com.google.code/sitemapgen4j -->
+		<dependency>
+		    <groupId>com.google.code</groupId>
+		    <artifactId>sitemapgen4j</artifactId>
+		    <version>1.0.1</version>
+		</dependency>
+		
+		<!-- http://mvnrepository.com/artifact/cn.edu.hfut.dmic.webcollector/WebCollector -->
+		<dependency>
+		    <groupId>cn.edu.hfut.dmic.webcollector</groupId>
+		    <artifactId>WebCollector</artifactId>
+		    <version>2.31</version>
+		    <exclusions>
+				<exclusion>
+					<artifactId>*</artifactId>
+					<groupId>*</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+		<dependency>
+            <!-- jsoup HTML parser library @ http://jsoup.org/ -->
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+            <version>1.8.3</version>
+        </dependency>
+        <dependency>
+            <groupId>com.googlecode.juniversalchardet</groupId>
+            <artifactId>juniversalchardet</artifactId>
+            <version>1.0.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20140107</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sleepycat</groupId>
+            <artifactId>je</artifactId>
+            <version>5.0.73</version>
+        </dependency>
 	</dependencies>
 </project>
