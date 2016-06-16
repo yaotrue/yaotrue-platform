@@ -14,13 +14,20 @@
  * THIS SOFTWARE OR ITS DERIVATIVES.
  *
  */
-package com.yaotrue.base.reflect;
+package com.yaotrue.web.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * @author <a href="mailto:zhen.yao@baozun.cn">zhen.yao</a>
- * 2016年5月26日 下午6:18:39
+ * 2016年6月16日 下午3:27:05
  */
-public interface Fruit {
+@Controller
+public class ErrorController {
 
-	void eat();
+	@RequestMapping("/errors/404")
+	public String error404(){
+		return "index";
+	}
 }

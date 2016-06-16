@@ -14,13 +14,22 @@
  * THIS SOFTWARE OR ITS DERIVATIVES.
  *
  */
-package com.yaotrue.base.reflect;
+package com.yaotrue.web.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * @author <a href="mailto:zhen.yao@baozun.cn">zhen.yao</a>
- * 2016年5月26日 下午6:18:39
+ * 2016年6月16日 下午2:01:18
  */
-public interface Fruit {
+@Controller
+public class MainController {
 
-	void eat();
+	@RequestMapping("/")
+	public String index(Model model){
+		model.addAttribute("msg", "hello springmvc");
+		return "index";
+	}
 }

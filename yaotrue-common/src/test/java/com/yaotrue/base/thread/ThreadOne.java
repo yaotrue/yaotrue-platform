@@ -44,6 +44,7 @@ public class ThreadOne extends Thread {
 		for(int i=0;i<5;i++){
 			logger.info("{}运行{}",name,i);
 			try {
+				//FIXME
 				sleep(1000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
