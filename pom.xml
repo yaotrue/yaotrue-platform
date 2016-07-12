@@ -52,7 +52,8 @@
 	<modules>
 		<module>yaotrue-common</module>
 		<module>yaotrue-learn</module>
-	</modules>
+    	<module>yaotrue-solr</module>
+  	</modules>
 
 	<build>
 		<plugins>
