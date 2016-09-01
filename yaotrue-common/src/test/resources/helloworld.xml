@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+						http://www.springframework.org/schema/context
+						http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+	<!-- id 表示你这个组件的名字， class表示组件类 -->
+	<bean id="strbean1" class="java.lang.String">
+		<constructor-arg index="0" value="hello world 1111111111111"></constructor-arg>
+	</bean>
+	
+	<bean id="hello" class="com.yaotrue.framework.spring.HelloWorldLog4j">
+		<property name="str">
+		<idref bean="strbean1"/>
+		</property>
+	</bean>
+	<bean id="hello2" class="com.yaotrue.framework.spring.HelloWorldLog4j">
+		<constructor-arg name="str" value="hello world test!"></constructor-arg>
+	</bean>
+	
+	<bean id="hello3" class="com.yaotrue.framework.spring.HelloWorldFactory" factory-method="newInstance">
+		<constructor-arg index="0" value="hello factory world"></constructor-arg>
+	</bean>
+	
+	<bean class="com.yaotrue.framework.spring.HelloWorldFactory" id="helloFactory" ></bean>
+	
+	<bean id="hello4" factory-bean="helloFactory" factory-method="newInstance2">
+		<constructor-arg index="0" value="hello factory 2 world"></constructor-arg>
+	</bean>
+	
+	<bean id="person" class="com.yaotrue.framework.spring.Person" p:name="李四"><!-- 使用 p 命名空间简化 setter 注入  等价于：<property name="name" value="李四"/> -->
+		<property name="yhk">
+			<list>
+				<value>招商</value>
+				<value>工商</value>
+				<value>建设</value>
+			</list>
+		</property>
+		<property name="price">
+			<set>
+				<value>58.56</value>
+				<value>0.32</value>
+				<value>184656.55</value>
+			</set>
+		</property>
+		<property name="num">
+			<array>
+				<value>12</value>
+				<value>13</value>
+				<value>6</value>
+			</array>
+		</property>
+		<property name="yhkPrice">
+			<map>
+				<entry key="招商" value="78465.5"></entry>
+				<entry>
+					<key>
+						<value>建设</value>
+					</key>
+					<value>4564.6</value>
+				</entry>
+				<entry key="工商">
+					<value>7945646.5</value>
+				</entry>
+			</map>
+		</property>
+		<property name="properties">
+			<props>
+				<prop key="lalala">yamade</prop>
+				<prop key="jiji">yang</prop>
+			</props>
+		</property>
+	</bean>
+</beans>

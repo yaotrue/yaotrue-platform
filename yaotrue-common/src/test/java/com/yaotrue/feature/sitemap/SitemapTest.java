@@ -20,7 +20,9 @@ import java.io.File;
 import java.net.MalformedURLException;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 import org.junit.Test;
 
@@ -66,13 +68,14 @@ public class SitemapTest {
 	}
 	
 	public static void main(String[] args) throws Exception {
-		File file = new File("E:/baozun");
+		File file = new File("E:/baozun/temp3");
 		
 		WebSitemapGenerator sitemapGenerator = WebSitemapGenerator
 				.builder("https://www.microsoftstore.com.hk", file).build();
-		Map<String, Integer> map = new HashMap<String, Integer>();
+		Set<String> strings = new HashSet<>();
 		
-		DemoBingCrawler crawler = new DemoBingCrawler("https://www.microsoftstore.com.hk",sitemapGenerator,map);
+//		DemoBingCrawler crawler = new DemoBingCrawler("https://www.microsoftstore.com.hk",sitemapGenerator,map);
+		MicrosoftRamCrawler crawler = new MicrosoftRamCrawler("https://www.microsoftstore.com.hk", sitemapGenerator, strings);
 		crawler.setThreads(50);
 		crawler.start(4);
 		

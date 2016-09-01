@@ -57,6 +57,12 @@
 			<artifactId>spring-web</artifactId>
 			<version>${version.spring}</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>1.6.8</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>yaotrue-learn</finalName>
