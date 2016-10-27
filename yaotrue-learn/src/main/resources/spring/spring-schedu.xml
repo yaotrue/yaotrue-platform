@@ -6,21 +6,12 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd	
 		">
-	<bean id="compareServiceTest" class="java.lang.Object" />
-
 	<bean id="compareJob"
 		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
 		<property name="targetObject" ref="schedulerManager" />
 		<property name="targetMethod" value="timerClean" />
 		<property name="concurrent" value="false" />
 	</bean>
-
-	<!-- <bean id="compareTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
-		<property name="jobDetail" ref="compareJob" />
-		<property name="cronExpression">
-			<value> 0 0 1 * * ?</value>
-		</property>
-	</bean> -->
 	
 	<bean id="compareTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
 	    <property name="name" value="default_job"/>
