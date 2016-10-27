@@ -141,7 +141,7 @@ public class HttpClientTest {
 		
 		WebSitemapGenerator sitemapGenerator = WebSitemapGenerator
 				.builder("https://www.microsoftstore.com.hk", file).build();
-		Set<String> strings = new HashSet<>();
+		Set<String> strings = new HashSet<String>();
 		WebSitemapUrl sitemapUrl;
 		try {
 			sitemapUrl = new WebSitemapUrl.Options("https://www.microsoftstore.com.hk")

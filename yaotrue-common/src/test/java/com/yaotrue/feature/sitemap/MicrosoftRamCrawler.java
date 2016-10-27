@@ -79,7 +79,10 @@ public class MicrosoftRamCrawler extends RamCrawler {
 			// You can add any number of urls here
 			sitemapGenerator.addUrl(sitemapUrl);
 			containsUrl.add(url);
-		} catch (MalformedURLException | ParseException e) {
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

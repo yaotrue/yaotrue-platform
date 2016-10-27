@@ -19,16 +19,16 @@
 		<version.jstl>1.2</version.jstl>
 		<version.servlet-api>2.5</version.servlet-api>
 
-		<version.spring>3.1.0.RELEASE</version.spring>
+		<version.spring>3.1.4.RELEASE</version.spring>
 		<version.tiles>2.2.2</version.tiles>
 	</properties>
 	
 	<dependencies>
-		<!-- <dependency>
+		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>yaotrue-common</artifactId>
 			<version>1.0</version>
-		</dependency> -->
+		</dependency>
 		
 		<!-- jsp-api -->
 		<dependency>
@@ -55,6 +55,11 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
+			<version>${version.spring}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
 			<version>${version.spring}</version>
 		</dependency>
 		

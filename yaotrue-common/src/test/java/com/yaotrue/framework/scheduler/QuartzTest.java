@@ -19,6 +19,8 @@ package com.yaotrue.framework.scheduler;
 import java.util.Date;
 
 import org.junit.Test;
+import org.quartz.CronScheduleBuilder;
+import org.quartz.CronTrigger;
 import org.quartz.DateBuilder;
 import org.quartz.JobBuilder;
 import org.quartz.JobDetail;
@@ -86,5 +88,39 @@ public class QuartzTest {
 	    // 8、通过Scheduler销毁内置的Trigger和Job  
 	    sched.shutdown(true);  
 	    logger.info("------- Shutdown Complete -----------------");  
+	}
+	
+	@Test
+	public void springQuartzTest() throws SchedulerException{
+		SchedulerFactory sf = new StdSchedulerFactory();  
+	    // 2、通过SchedulerFactory获得Scheduler对象  
+	    Scheduler sched = sf.getScheduler();
+	    
+	    JobDetail jobDetail= JobBuilder.newJob(HelloJob.class).withIdentity("job1", Scheduler.DEFAULT_GROUP).build();
+	    
+	    // 触发器  
+        TriggerBuilder<Trigger> triggerBuilder = TriggerBuilder.newTrigger();
+        // 触发器名,触发器组  
+        triggerBuilder.withIdentity("job1", Scheduler.DEFAULT_GROUP);
+        triggerBuilder.startNow();
+        // 触发器时间设定  
+        triggerBuilder.withSchedule(CronScheduleBuilder.cronSchedule("0/1 * * * * ?"));
+        // 创建Trigger对象
+        CronTrigger trigger = (CronTrigger)triggerBuilder.build();
+
+        // 调度容器设置JobDetail和Trigger
+        sched.scheduleJob(jobDetail, trigger);  
+
+        // 启动  
+        if (!sched.isShutdown()) {  
+            sched.start();  
+        }
+        
+        try {
+			Thread.sleep(new Long(1000 * 60));
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

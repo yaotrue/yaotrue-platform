@@ -72,7 +72,7 @@ public class SitemapTest {
 		
 		WebSitemapGenerator sitemapGenerator = WebSitemapGenerator
 				.builder("https://www.microsoftstore.com.hk", file).build();
-		Set<String> strings = new HashSet<>();
+		Set<String> strings = new HashSet<String>();
 		
 //		DemoBingCrawler crawler = new DemoBingCrawler("https://www.microsoftstore.com.hk",sitemapGenerator,map);
 		MicrosoftRamCrawler crawler = new MicrosoftRamCrawler("https://www.microsoftstore.com.hk", sitemapGenerator, strings);
