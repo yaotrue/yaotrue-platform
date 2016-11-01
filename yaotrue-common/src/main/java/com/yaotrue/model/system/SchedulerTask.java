@@ -16,12 +16,22 @@
  */
 package com.yaotrue.model.system;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
 import com.yaotrue.model.BaseModel;
 
 /**
  * @author <a href="mailto:zhen.yao@baozun.cn">zhen.yao</a> 2016年10月27日
  *         上午11:22:09
  */
+@Entity  
+@Table(name = "T_YT_SCHEDULER_TASK") 
 public class SchedulerTask extends BaseModel {
 
 	/**
@@ -67,6 +77,10 @@ public class SchedulerTask extends BaseModel {
 	/**
 	 * @return the id
 	 */
+	@Id
+	@Column(name = "ID")
+	@SequenceGenerator(name = "SEQ_T_YZ_SCHEDULER_TASK",sequenceName = "S_T_YZ_SCHEDULER_TASK",allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "SEQ_T_YZ_SCHEDULER_TASK")
 	public Long getId() {
 		return id;
 	}
@@ -82,6 +96,7 @@ public class SchedulerTask extends BaseModel {
 	/**
 	 * @return the code
 	 */
+	@Column(name = "CODE",length = 100)
 	public String getCode() {
 		return code;
 	}
@@ -97,6 +112,7 @@ public class SchedulerTask extends BaseModel {
 	/**
 	 * @return the timeExp
 	 */
+	@Column(name = "TIME_EXP",length = 50)
 	public String getTimeExp() {
 		return timeExp;
 	}
@@ -112,6 +128,7 @@ public class SchedulerTask extends BaseModel {
 	/**
 	 * @return the description
 	 */
+	@Column(name = "DESCRIPTION",length = 100)
 	public String getDescription() {
 		return description;
 	}
@@ -127,6 +144,7 @@ public class SchedulerTask extends BaseModel {
 	/**
 	 * @return the beanName
 	 */
+	@Column(name = "BEAN_NAME",length = 100)
 	public String getBeanName() {
 		return beanName;
 	}
@@ -142,6 +160,7 @@ public class SchedulerTask extends BaseModel {
 	/**
 	 * @return the methodName
 	 */
+	@Column(name = "METHOD_NAME",length = 100)
 	public String getMethodName() {
 		return methodName;
 	}
@@ -157,6 +176,7 @@ public class SchedulerTask extends BaseModel {
 	/**
 	 * @return the lifecycle
 	 */
+	@Column(name = "LIFECYCLE")
 	public Integer getLifecycle() {
 		return lifecycle;
 	}

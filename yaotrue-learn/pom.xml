@@ -21,6 +21,8 @@
 
 		<version.spring>3.1.4.RELEASE</version.spring>
 		<version.tiles>2.2.2</version.tiles>
+		
+		<version.postgresql>9.1-901.jdbc3</version.postgresql>
 	</properties>
 	
 	<dependencies>
@@ -57,11 +59,6 @@
 			<artifactId>spring-web</artifactId>
 			<version>${version.spring}</version>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-tx</artifactId>
-			<version>${version.spring}</version>
-		</dependency>
 		
 		<dependency>
 			<groupId>org.aspectj</groupId>
@@ -70,11 +67,16 @@
 		</dependency>
 		
 		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-test</artifactId>
-			<version>${version.spring}</version>
-			<scope>test</scope>
+			<groupId>postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>${version.postgresql}</version>
 		</dependency>
+
+		<dependency>  
+            <groupId>com.mchange</groupId>  
+            <artifactId>c3p0</artifactId>  
+            <version>0.9.5-pre10</version>  
+        </dependency>
 	</dependencies>
 	<build>
 		<finalName>yaotrue-learn</finalName>

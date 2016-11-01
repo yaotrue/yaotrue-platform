@@ -36,12 +36,12 @@ public class SdkSchedulerTaskManagerImpl implements SdkSchedulerTaskManager {
 	@Override
 	public List<SchedulerTask> findAllEffectSchedulerTaskList() {
 		List<SchedulerTask> schedulerTasks = new ArrayList<SchedulerTask>();
-		for (int i = 1;i<=100;i++) {
+		for (int i = 1;i<=1;i++) {
 			SchedulerTask schedulerTask = new SchedulerTask();
 			schedulerTask.setBeanName("tmall20161111TgManager");
 			schedulerTask.setCode("job"+i);
 			schedulerTask.setMethodName("sendEmail");
-			schedulerTask.setTimeExp("0/5 * * * * ?");
+			schedulerTask.setTimeExp("0 0/10 * * * ?");
 			schedulerTasks.add(schedulerTask);
 		}
 		return schedulerTasks;

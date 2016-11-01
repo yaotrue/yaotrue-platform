@@ -16,11 +16,12 @@
 	
 	<import resource="spring/spring-schedu.xml" />
 	<import resource="spring/spring-mail.xml" />
+	<import resource="spring/spring-dao.xml" />
 	
 	<!-- 配置文件加密工具 start -->
 	<bean id="environmentVariablesConfiguration"
 		class="org.jasypt.encryption.pbe.config.EnvironmentStringPBEConfig">
-		<property name="algorithm" value="PBEWITHSHA256AND256BITAES-CBC-BC" />
+		<property name="algorithm" value="PBEWITHSHA256AND128BITAES-CBC-BC" />
 		<property name="passwordEnvName" value="APP_ENCRYPTION_PASSWORD" />
 	</bean>
 
@@ -34,8 +35,10 @@
 
 	<beans profile="dev">
 		<encryption:encryptable-properties id="meta" encryptor="configurationEncryptor" location="classpath:config/dev/metainfo.properties"/>
+		<encryption:encryptable-properties id="jdbc" encryptor="configurationEncryptor" location="classpath:config/dev/hibernate.properties"/>
 	</beans>
 	<beans profile="test">
 		<encryption:encryptable-properties id="meta" encryptor="configurationEncryptor" location="classpath:config/test/metainfo.properties"/>
+		<encryption:encryptable-properties id="jdbc" encryptor="configurationEncryptor" location="classpath:config/test/hibernate.properties"/>
 	</beans>
 </beans>

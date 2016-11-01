@@ -13,6 +13,13 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		
+		<version.spring>3.1.4.RELEASE</version.spring>
+		<version.javamail>1.4</version.javamail>
+		
+		<!-- 轻易不要升级这两个jar -->
+		<version.hibernate>3.5.1-Final</version.hibernate>
+		<version.hibernate-annotations>3.5.1-Final</version.hibernate-annotations>
 	</properties>
 
 	<dependencies>
@@ -20,6 +27,13 @@
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${version.spring}</version>
+			<scope>test</scope>
 		</dependency>
 
 		<!-- http://mvnrepository.com/artifact/org.slf4j/slf4j-log4j12 -->
@@ -29,10 +43,146 @@
 			<version>1.7.12</version>
 		</dependency>
 
+		<!-- Junit多线程测试 -->
 		<dependency>
 			<groupId>net.sourceforge.groboutils</groupId>
 			<artifactId>groboutils-core</artifactId>
 			<version>5</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.quartz-scheduler</groupId>
+			<artifactId>quartz</artifactId>
+			<version>2.2.1</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>*</artifactId>
+					<groupId>*</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.quartz-scheduler</groupId>
+			<artifactId>quartz-jobs</artifactId>
+			<version>2.2.1</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>${version.javamail}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.20</version>
+		</dependency>
+		
+		<!-- http://mvnrepository.com/artifact/org.apache.velocity/velocity -->
+		<dependency>
+		    <groupId>org.apache.velocity</groupId>
+		    <artifactId>velocity</artifactId>
+		    <version>1.7</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
+		<dependency>
+		    <groupId>org.apache.httpcomponents</groupId>
+		    <artifactId>httpclient</artifactId>
+		    <version>4.5.2</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+		<dependency>
+		    <groupId>commons-io</groupId>
+		    <artifactId>commons-io</artifactId>
+		    <version>2.5</version>
+		</dependency>
+		
+		<!-- Spring Framework -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${version.spring}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${version.spring}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${version.spring}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${version.spring}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${version.spring}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>1.6.8</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>jboss</groupId>
+			<artifactId>javassist</artifactId>
+			<version>3.7.ga</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.jasypt</groupId>
+		  	<artifactId>jasypt</artifactId>
+		  	<version>1.9.2</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.jasypt</groupId>
+  			<artifactId>jasypt-spring31</artifactId>
+  			<version>1.9.2</version>
+		</dependency>
+		
+		<!-- 用于 RSA加解密 -->
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcprov-jdk16</artifactId>
+			<version>1.46</version>
+		</dependency>
+		
+		<!-- Hibernate -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${version.hibernate}</version>
+			
+			<exclusions>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-api</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-annotations</artifactId>
+			<version>${version.hibernate-annotations}</version>
+			
+			<exclusions>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-api</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 	</dependencies>
 
