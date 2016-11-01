@@ -28,7 +28,44 @@ import com.yaotrue.model.solr.YaoTrueSku;
  */
 public interface SolrManager {
 
+	/**
+	 * 全局更新Solr
+	 * @author <a href="mailto:zhen.yao@baozun.cn">zhen.yao</a>
+	 * @since JDK 1.7
+	 */
 	void refreshSolr();
 	
+	/**
+	 * 根据产品ID更新索引
+	 *
+	 * @author <a href="mailto:zhen.yao@baozun.cn">zhen.yao</a>
+	 * @param skuId
+	 * @since JDK 1.7
+	 */
+	void refreshBySkuId(String skuId);
+	
+	/**
+	 * 清空Solr
+	 * @author <a href="mailto:zhen.yao@baozun.cn">zhen.yao</a>
+	 * @since JDK 1.7
+	 */
+	void deleteAll();
+	
+	/**
+	 * 根据产品ID删除索引
+	 * @author <a href="mailto:zhen.yao@baozun.cn">zhen.yao</a>
+	 * @param skuId
+	 * @since JDK 1.7
+	 */
+	void deleteBySkuId(String skuId);
+	
+	/**
+	 * 根据参数分页查询产品数据
+	 * @author <a href="mailto:zhen.yao@baozun.cn">zhen.yao</a>
+	 * @param page
+	 * @param params
+	 * @return
+	 * @since JDK 1.7
+	 */
 	Pagination<YaoTrueSku> findSkuByParams(Page page,Map<String, Object> params);
 }

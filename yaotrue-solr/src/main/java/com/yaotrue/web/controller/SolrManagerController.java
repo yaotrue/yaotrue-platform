@@ -29,6 +29,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yaotrue.command.Page;
+import com.yaotrue.command.web.ControllerJsonResponceCommand;
 import com.yaotrue.manager.solr.SolrManager;
 
 /**
@@ -51,9 +52,30 @@ public class SolrManagerController {
 
 	@ResponseBody
 	@RequestMapping(value = "/solrRefreshAll.json", method = RequestMethod.POST)
-	public void solrRefreshAll(HttpServletRequest request, Model model) {
+	public ControllerJsonResponceCommand solrRefreshAll(HttpServletRequest request, Model model) {
 		solrManager.refreshSolr();
-		model.addAttribute("status", true);
+		return new ControllerJsonResponceCommand(true,"刷新成功");
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/solrDeleteAll.json", method = RequestMethod.POST)
+	public ControllerJsonResponceCommand solrDeleteAll(HttpServletRequest request, Model model) {
+		solrManager.deleteAll();
+		return new ControllerJsonResponceCommand(true,"情况成功");
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/solrRefreshBySkuId.json", method = RequestMethod.POST)
+	public ControllerJsonResponceCommand solrRefreshBySkuId(HttpServletRequest request, Model model,@RequestParam("skuId")String skuId) {
+		solrManager.refreshBySkuId(skuId);
+		return new ControllerJsonResponceCommand(true,"刷新成功");
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/solrDeleteBySkuId.json", method = RequestMethod.POST)
+	public ControllerJsonResponceCommand solrDeleteBySkuId(HttpServletRequest request, Model model,@RequestParam("skuId")String skuId) {
+		solrManager.deleteBySkuId(skuId);
+		return new ControllerJsonResponceCommand(true,"删除成功");
 	}
 
 	@RequestMapping("/solrView.htm")

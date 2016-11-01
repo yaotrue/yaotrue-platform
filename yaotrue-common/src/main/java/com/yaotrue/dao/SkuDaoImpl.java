@@ -108,4 +108,13 @@ public class SkuDaoImpl implements SkuDao {
 		return (ArrayList<Sku>)jdbcTemplate.query("select * from t_yt_sku order by id", new BeanPropertyRowMapper(Sku.class));
 	}
 
+	/* (non-Javadoc)
+	 * @see com.yaotrue.dao.SkuDao#getBySkuId(java.lang.String)
+	 */
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@Override
+	public Sku getBySkuId(String skuId) {
+		return ((ArrayList<Sku>)jdbcTemplate.query("select * from t_yt_sku where sku_id=?", new Object[]{skuId}, new BeanPropertyRowMapper(Sku.class))).get(0);
+	}
+
 }

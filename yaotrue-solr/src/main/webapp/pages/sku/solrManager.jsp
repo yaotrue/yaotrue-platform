@@ -17,10 +17,53 @@
 				async : true
 			})
 		})
+		$("#deleteAll").click(function(){
+			$.ajax({
+				url : base + "/solrDeleteAll.json",
+				type : 'POST',
+				async : true
+			})
+		})
+		$("#refreshBySkuId").click(function(){
+			var skuId = $("#skuId").val();
+			if('' == skuId){
+				alert('请输入产品ID');
+				return false;
+			}
+			$.ajax({
+				url : base + "/solrRefreshBySkuId.json",
+				type : 'POST',
+				data : {
+					skuId : skuId
+				},
+				async : true
+			})
+		})
+		$("#deleteBySkuId").click(function(){
+			var skuId = $("#skuId").val();
+			if('' == skuId){
+				alert('请输入产品ID');
+				return false;
+			}
+			$.ajax({
+				url : base + "/solrDeleteBySkuId.json",
+				type : 'POST',
+				data : {
+					skuId : skuId
+				},
+				async : true
+			})
+		})
 	})
 </script>
 
 <body>
-	<a href="javascript:void(0)" id="refreshAll">全局刷新</a>
+	<p><a href="javascript:void(0)" id="refreshAll">全局刷新</a></p>
+	<p><a href="javascript:void(0)" id="deleteAll">清空SOLR</a></p>
+	<p>
+		<input type="text" id="skuId"/>
+		<a href="javascript:void(0)" id="refreshBySkuId">更新</a>
+		<a href="javascript:void(0)" id="deleteBySkuId">删除</a>
+	</p>
 </body>
 </html>

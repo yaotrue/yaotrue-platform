@@ -34,6 +34,18 @@ public class ControllerJsonResponceCommand extends Command {
 	
 	/**提示信息*/
 	private String message;
+	
+	/**
+	 * Creates a new instance of ControllerJsonResponceCommand.
+	 */
+	public ControllerJsonResponceCommand() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public ControllerJsonResponceCommand(Boolean status,String message){
+		this.status = status;
+		this.message = message;
+	}
 
 	/**
 	 * @return the status

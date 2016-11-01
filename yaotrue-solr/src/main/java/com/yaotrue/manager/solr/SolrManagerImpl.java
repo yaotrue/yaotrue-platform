@@ -107,6 +107,7 @@ public class SolrManagerImpl implements SolrManager {
 	 * @see com.yaotrue.manager.solr.SolrManager#findSkuByParams(com.yaotrue.command.Page, java.util.Map)
 	 */
 	@Override
+	@Transactional(readOnly = true)
 	public Pagination<YaoTrueSku> findSkuByParams(Page page, Map<String, Object> params) {
 		SolrQuery solrQuery = new SolrQuery();
 		solrQuery.setQuery("*:*");
@@ -127,6 +128,71 @@ public class SolrManagerImpl implements SolrManager {
 			e.printStackTrace();;
 		}
 		return null;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.yaotrue.manager.solr.SolrManager#refreshBySkuId(java.lang.String)
+	 */
+	@Override
+	@Transactional(readOnly = true)
+	public void refreshBySkuId(String skuId) {
+		Sku sku = skuDao.getBySkuId(skuId);
+		try {
+			YaoTrueSku yaoTrueSku = new YaoTrueSku();
+			BeanUtils.copyProperties(yaoTrueSku, sku);
+			solrServer.addBean(yaoTrueSku);
+			solrServer.commit();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (SolrServerException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			e.printStackTrace();
+		}
+	}
+
+	/* (non-Javadoc)
+	 * @see com.yaotrue.manager.solr.SolrManager#deleteAll()
+	 */
+	@Override
+	@Transactional(readOnly = true)
+	public void deleteAll() {
+		try {
+			solrServer.deleteByQuery("*:*");
+			solrServer.commit();
+		} catch (SolrServerException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	/* (non-Javadoc)
+	 * @see com.yaotrue.manager.solr.SolrManager#deleteBySkuId(java.lang.String)
+	 */
+	@Override
+	@Transactional(readOnly = true)
+	public void deleteBySkuId(String skuId) {
+		SolrQuery solrQuery = new SolrQuery();
+		solrQuery.setQuery("skuId:"+skuId);
+		
+		try {
+			QueryResponse queryResponse = solrServer.query(solrQuery);
+			List<YaoTrueSku> yaoTrueSkus = queryResponse.getBeans(YaoTrueSku.class);
+			if (null == yaoTrueSkus || yaoTrueSkus.size() == 0) {
+				return;
+			}
+			YaoTrueSku yaoTrueSku = yaoTrueSkus.get(0);
+			
+			solrServer.deleteById(yaoTrueSku.getId().toString());
+			solrServer.commit();
+		} catch (SolrServerException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

@@ -29,4 +29,6 @@ public interface SkuDao {
 	Sku saveSku(Sku sku);
 	
 	List<Sku> findAllSku();
+	
+	Sku getBySkuId(String skuId);
 }
