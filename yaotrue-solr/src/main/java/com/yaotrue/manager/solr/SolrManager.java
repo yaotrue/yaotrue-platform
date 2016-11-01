@@ -14,16 +14,21 @@
  * THIS SOFTWARE OR ITS DERIVATIVES.
  *
  */
-package com.yaotrue;
+package com.yaotrue.manager.solr;
 
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
+import java.util.Map;
+
+import com.yaotrue.command.Page;
+import com.yaotrue.command.Pagination;
+import com.yaotrue.model.solr.YaoTrueSku;
 
 /**
  * @author <a href="mailto:zhen.yao@baozun.cn">zhen.yao</a>
- * 2016年7月12日 下午12:54:47
+ * 2016年11月1日 下午1:39:42
  */
-@ContextConfiguration(locations = {"classpath*:yaotrue-spring.xml" })
-public class BaseTest extends AbstractJUnit4SpringContextTests {
+public interface SolrManager {
 
+	void refreshSolr();
+	
+	Pagination<YaoTrueSku> findSkuByParams(Page page,Map<String, Object> params);
 }

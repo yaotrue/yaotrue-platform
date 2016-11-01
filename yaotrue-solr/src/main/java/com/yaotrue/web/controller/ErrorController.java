@@ -14,16 +14,32 @@
  * THIS SOFTWARE OR ITS DERIVATIVES.
  *
  */
-package com.yaotrue;
+package com.yaotrue.web.controller;
 
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * @author <a href="mailto:zhen.yao@baozun.cn">zhen.yao</a>
- * 2016年7月12日 下午12:54:47
+ * 2016年11月1日 下午5:36:26
  */
-@ContextConfiguration(locations = {"classpath*:yaotrue-spring.xml" })
-public class BaseTest extends AbstractJUnit4SpringContextTests {
+@Controller
+public class ErrorController {
 
+	@RequestMapping(value = "/errors/error")
+	public String error(HttpServletRequest request){
+		return "/errors/err_error";
+	}
+	
+	@RequestMapping(value = "/errors/404")
+	public String error_404(HttpServletRequest request){
+		return "/errors/err_404";
+	}
+	
+	@RequestMapping(value = "/errors/50x")
+	public String error_50x(HttpServletRequest request){
+		return "/errors/err_50x";
+	}
 }

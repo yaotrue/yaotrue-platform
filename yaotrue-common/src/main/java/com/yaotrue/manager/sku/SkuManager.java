@@ -14,16 +14,17 @@
  * THIS SOFTWARE OR ITS DERIVATIVES.
  *
  */
-package com.yaotrue;
+package com.yaotrue.manager.sku;
 
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
+import java.io.File;
+
+import com.yaotrue.command.web.ControllerJsonResponceCommand;
 
 /**
  * @author <a href="mailto:zhen.yao@baozun.cn">zhen.yao</a>
- * 2016年7月12日 下午12:54:47
+ * 2016年11月1日 下午2:05:23
  */
-@ContextConfiguration(locations = {"classpath*:yaotrue-spring.xml" })
-public class BaseTest extends AbstractJUnit4SpringContextTests {
+public interface SkuManager {
 
+	ControllerJsonResponceCommand saveSkuByFile(File file);
 }

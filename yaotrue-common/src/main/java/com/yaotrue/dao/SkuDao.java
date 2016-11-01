@@ -14,16 +14,19 @@
  * THIS SOFTWARE OR ITS DERIVATIVES.
  *
  */
-package com.yaotrue;
+package com.yaotrue.dao;
 
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
+import java.util.List;
+
+import com.yaotrue.model.sku.Sku;
 
 /**
  * @author <a href="mailto:zhen.yao@baozun.cn">zhen.yao</a>
- * 2016年7月12日 下午12:54:47
+ * 2016年11月1日 下午2:53:12
  */
-@ContextConfiguration(locations = {"classpath*:yaotrue-spring.xml" })
-public class BaseTest extends AbstractJUnit4SpringContextTests {
+public interface SkuDao {
 
+	Sku saveSku(Sku sku);
+	
+	List<Sku> findAllSku();
 }

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:encryption="http://www.jasypt.org/schema/encryption"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.jasypt.org/schema/encryption http://www.yaotrue.com/schema/encryption/jasypt-spring31-encryption-1.xsd">
+
+	<aop:aspectj-autoproxy />
+	<context:annotation-config />
+	
+	<context:component-scan base-package="com.yaotrue.**.dao"/>
+	<context:component-scan base-package="com.yaotrue.**.manager"/>
+	
+	<import resource="spring/spring-dao.xml" />
+	<import resource="spring/spring-mail.xml" />
+	<import resource="spring/spring-solr.xml" />
+	
+	<!-- 配置文件加密工具 start -->
+	<bean id="environmentVariablesConfiguration"
+		class="org.jasypt.encryption.pbe.config.EnvironmentStringPBEConfig">
+		<property name="algorithm" value="PBEWITHSHA256AND128BITAES-CBC-BC" />
+		<property name="passwordEnvName" value="APP_ENCRYPTION_PASSWORD" />
+	</bean>
+
+	<bean id="bouncyCastleProvider" class="org.bouncycastle.jce.provider.BouncyCastleProvider" />
+
+	<bean id="configurationEncryptor" class="org.jasypt.encryption.pbe.StandardPBEStringEncryptor">
+		<property name="provider" ref="bouncyCastleProvider" />
+		<property name="config" ref="environmentVariablesConfiguration" />
+	</bean>
+	<!-- 配置文件加密工具 end -->
+
+	<beans profile="dev">
+		<encryption:encryptable-properties id="meta" encryptor="configurationEncryptor" location="classpath:config/dev/metainfo.properties"/>
+		<encryption:encryptable-properties id="jdbc" encryptor="configurationEncryptor" location="classpath:config/dev/hibernate.properties"/>
+	</beans>
+	<beans profile="test">
+		<encryption:encryptable-properties id="meta" encryptor="configurationEncryptor" location="classpath:config/test/metainfo.properties"/>
+		<encryption:encryptable-properties id="jdbc" encryptor="configurationEncryptor" location="classpath:config/test/hibernate.properties"/>
+	</beans>
+</beans>

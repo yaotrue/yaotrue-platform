@@ -14,16 +14,53 @@
  * THIS SOFTWARE OR ITS DERIVATIVES.
  *
  */
-package com.yaotrue;
+package com.yaotrue.command.web;
 
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
+import com.yaotrue.command.Command;
 
 /**
  * @author <a href="mailto:zhen.yao@baozun.cn">zhen.yao</a>
- * 2016年7月12日 下午12:54:47
+ * 2016年11月1日 下午2:08:29
  */
-@ContextConfiguration(locations = {"classpath*:yaotrue-spring.xml" })
-public class BaseTest extends AbstractJUnit4SpringContextTests {
+public class ControllerJsonResponceCommand extends Command {
+
+	/**
+	 * <code>{@value}</code>
+	 */
+	private static final long serialVersionUID = -5799198822183173999L;
+	
+	/**返回状态*/
+	private Boolean status;
+	
+	/**提示信息*/
+	private String message;
+
+	/**
+	 * @return the status
+	 */
+	public Boolean getStatus() {
+		return status;
+	}
+
+	/**
+	 * @param status the status to set
+	 */
+	public void setStatus(Boolean status) {
+		this.status = status;
+	}
+
+	/**
+	 * @return the message
+	 */
+	public String getMessage() {
+		return message;
+	}
+
+	/**
+	 * @param message the message to set
+	 */
+	public void setMessage(String message) {
+		this.message = message;
+	}
 
 }
