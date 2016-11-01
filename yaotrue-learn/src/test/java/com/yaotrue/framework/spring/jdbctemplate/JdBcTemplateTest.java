@@ -14,38 +14,39 @@
  * THIS SOFTWARE OR ITS DERIVATIVES.
  *
  */
-package com.yaotrue.framework;
+package com.yaotrue.framework.spring.jdbctemplate;
 
-import org.hibernate.SessionFactory;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
 
+import com.alibaba.fastjson.JSON;
 import com.yaotrue.BaseTest;
 import com.yaotrue.model.system.SchedulerTask;
 
 /**
  * @author <a href="mailto:zhen.yao@baozun.cn">zhen.yao</a>
- * 2016年11月1日 上午8:54:35
+ * 2016年11月1日 上午10:40:55
  */
-public class HibernateTest extends BaseTest {
+public class JdBcTemplateTest extends BaseTest {
+	
+	private static final Logger logger = LoggerFactory.getLogger(JdbcTemplate.class);
 
 	@Autowired
-	private HibernateTemplate hibernateTemplate;
+	private JdbcTemplate jdbcTemplate;
 	
-	@Autowired
-	private SessionFactory sessionFactory;
-	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Test
-	public void testHibernate(){
-		SchedulerTask schedulerTask = new SchedulerTask();
-		sessionFactory.getCurrentSession();
-		schedulerTask.setBeanName("beanName");
-		schedulerTask.setCode("code");
-		schedulerTask.setDescription("描述");
-		schedulerTask.setLifecycle(1);
-		schedulerTask.setMethodName("methodName");
-		schedulerTask.setTimeExp("timeExp");
-		hibernateTemplate.save(schedulerTask);
+	public void testQuery(){
+		List<SchedulerTask> schedulerTasks = (ArrayList<SchedulerTask>)jdbcTemplate.query("select * from t_yt_scheduler_task order by id desc", new BeanPropertyRowMapper(SchedulerTask.class));
+		for (SchedulerTask schedulerTask : schedulerTasks) {
+			logger.info("jdbcTemplate select db result:{}",JSON.toJSONString(schedulerTask));
+		}
 	}
 }
