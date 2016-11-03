@@ -72,7 +72,11 @@ public class SkuManagerImpl implements SkuManager {
 	        	}
 	        	logger.info("cell 1 content:{}",row.getCell(1).getStringCellValue());
 	        	
-	        	Sku sku = new Sku();
+	        	Sku sku = skuDao.getBySkuId(row.getCell(0).getStringCellValue());
+	        	if(null == sku){
+	        		sku = new Sku();
+	        		sku.setSkuId(row.getCell(0).getStringCellValue());
+	        	}
 	        	sku.setCategoryName(row.getCell(4).getStringCellValue());
 	        	sku.setCommission(Double.valueOf(row.getCell(9).getStringCellValue()));
 	        	sku.setIncomeRate(Double.valueOf(row.getCell(8).getStringCellValue()));
@@ -81,11 +85,9 @@ public class SkuManagerImpl implements SkuManager {
 	        	sku.setSalesCount(Integer.parseInt(row.getCell(7).getStringCellValue()));
 	        	sku.setShopName(row.getCell(12).getStringCellValue());
 	        	sku.setSkuDetailUrl(row.getCell(3).getStringCellValue());
-	        	sku.setSkuId(row.getCell(0).getStringCellValue());
 	        	sku.setSkuImgUrl(row.getCell(2).getStringCellValue());
 	        	sku.setSkuName(row.getCell(1).getStringCellValue());
 	        	sku.setTgUrl(row.getCell(5).getStringCellValue());
-	        	sku.setViewCount(100);
 	        	
 	        	skuDao.saveSku(sku);
 	        }

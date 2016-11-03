@@ -82,7 +82,7 @@ public class Sku extends BaseModel {
 	private String platformName;
 	
 	/**浏览量*/
-	private Integer viewCount;
+	private Integer viewCount = 0;
 	
 	/**上线时间*/
 	private Date onLineTime = new Date();

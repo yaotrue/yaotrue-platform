@@ -29,10 +29,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.yaotrue.command.Page;
 import com.yaotrue.command.web.ControllerJsonResponceCommand;
 import com.yaotrue.manager.sku.SkuManager;
+import com.yaotrue.manager.solr.SolrManager;
 import com.yaotrue.util.MultipartFileUtils;
 
 /**
@@ -45,12 +48,21 @@ public class MainController {
 
 	@Autowired
 	private SkuManager skuManager;
+	
+	@Autowired
+	private SolrManager solrManager;
 
 	@RequestMapping("/")
 	public String index(Model model) {
 		logger.debug("hello");
 		model.addAttribute("msg", "hello springmvc");
 		return "index";
+	}
+	
+	@RequestMapping("/category.htm")
+	public String category(Model model,@RequestParam(value="pageNo",defaultValue="1")Integer pageNo) {
+		model.addAttribute("pagination", solrManager.findSkuByParams(new Page(pageNo,30), null));
+		return "category";
 	}
 	
 	@RequestMapping("/skuUpload.htm")

@@ -18,6 +18,7 @@
 	<import resource="spring/spring-dao.xml" />
 	<import resource="spring/spring-mail.xml" />
 	<import resource="spring/spring-solr.xml" />
+	<import resource="spring/spring-message.xml" />
 	
 	<!-- 配置文件加密工具 start -->
 	<bean id="environmentVariablesConfiguration"

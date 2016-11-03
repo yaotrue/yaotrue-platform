@@ -114,7 +114,11 @@ public class SkuDaoImpl implements SkuDao {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public Sku getBySkuId(String skuId) {
-		return ((ArrayList<Sku>)jdbcTemplate.query("select * from t_yt_sku where sku_id=?", new Object[]{skuId}, new BeanPropertyRowMapper(Sku.class))).get(0);
+		List<Sku> skus = ((ArrayList<Sku>)jdbcTemplate.query("select * from t_yt_sku where sku_id=?", new Object[]{skuId}, new BeanPropertyRowMapper(Sku.class)));
+		if(null == skus || 0 == skus.size()){
+			return null;
+		}
+		return skus.get(0);
 	}
 
 }
