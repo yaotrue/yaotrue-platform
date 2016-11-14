@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@include file="/pages/commons/common.jsp"%>
 <!--Top-->
-<nav id="top">
+<!-- <nav id="top">
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-6">
@@ -21,7 +21,7 @@
 			</div>
 		</div>
 	</div>
-</nav>
+</nav> -->
 <!--Header-->
 <header class="container">
 	<div class="row">
@@ -32,20 +32,20 @@
 				</a>
 			</div>
 		</div>
-		<div class="col-md-4">
-			<form class="form-search">
-				<input type="text" class="input-medium search-query">
+		<div class="col-md-8">
+			<form class="form-search" action="${base }/search.htm" method="get">
+				<input type="text" class="input-medium search-query" name="keyword" value="${keyword }">
 				<button type="submit" class="btn">
 					<span class="glyphicon glyphicon-search"></span>
 				</button>
 			</form>
 		</div>
-		<div class="col-md-4">
+		<!-- <div class="col-md-4">
 			<div id="cart">
 				<a class="btn btn-1" href="cart.html"><span
 					class="glyphicon glyphicon-shopping-cart"></span>CART : 0 ITEM</a>
 			</div>
-		</div>
+		</div> -->
 	</div>
 </header>
 <!--Navigation-->

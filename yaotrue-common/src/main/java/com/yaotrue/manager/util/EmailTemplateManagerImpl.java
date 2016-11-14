@@ -50,7 +50,7 @@ public class EmailTemplateManagerImpl implements EmailTemplateManager {
 	 */
 	@Override
 	public void sendEmail(String receiverEmail, String code, Map<String, Object> dataMap) throws Exception {
-		sendEmail(receiverEmail, code, dataMap, null);
+		sendEmail(new String[]{receiverEmail}, code, dataMap, null);
 	}
 
 	/*
@@ -61,20 +61,20 @@ public class EmailTemplateManagerImpl implements EmailTemplateManager {
 	 * java.lang.String, java.util.Map, java.util.List)
 	 */
 	@Override
-	public void sendEmail(String receiverEmail, String code, Map<String, Object> dataMap,
+	public void sendEmail(String[] receiverEmail, String code, Map<String, Object> dataMap,
 			List<EmailAttachmentCommand> attachmentList) throws Exception {
 
 		EmailCommand ec = constructMail(receiverEmail, dataMap, attachmentList);
 		mailService.sendMail(ec);
 	}
 
-	private EmailCommand constructMail(String receiverEmail, Map<String, Object> params,
+	private EmailCommand constructMail(String[] receiverEmail, Map<String, Object> params,
 			List<EmailAttachmentCommand> attachmentList) throws MessagingException, UnsupportedEncodingException {
 		String content = velocityManager.parseVMTemplate("velocity/20161111.vm", params);
 		String subject = "2016天猫双十一大狂欢";
 
 		EmailCommand ec = new EmailCommand();
-		ec.setAddress(receiverEmail);
+		ec.setAddressArray(receiverEmail);
 		ec.setFrom("yaotrue@163.com");
 		ec.setSubject(subject);
 		ec.setContent(content);

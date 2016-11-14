@@ -17,7 +17,9 @@
 package com.yaotrue.manager.util;
 
 import javax.annotation.Resource;
+import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMessage.RecipientType;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -57,6 +59,11 @@ public class MailServiceImpl implements MailService {
 			public void run() {
 				try {
 					MimeMessage mime = javaMailSender.createMimeMessage();
+					if(null != email.getAddressArray()){
+						@SuppressWarnings("static-access")
+						InternetAddress[] iaToList = new InternetAddress().parse(getMailList(email.getAddressArray())); 
+						mime.setRecipients(RecipientType.BCC, iaToList); // 收件人 
+					}
 					MimeMessageHelper helper = new MimeMessageHelper(mime,
 							true, "utf-8");
 					if(null == email.getSenderAlias() || email.getSenderAlias().trim().equals(""))
@@ -64,7 +71,10 @@ public class MailServiceImpl implements MailService {
 					else
 						helper.setFrom(email.getFrom(), email.getSenderAlias());// 发件人 加上别名
 					
-					helper.setTo(email.getAddress());// 收件人
+					if(null != email.getAddress()){
+						helper.setTo(email.getAddress());// 收件人
+					}
+					
 					helper.setSubject(email.getSubject());// 邮件主题
 					helper.setText(email.getContent(), true);// true表示设定html格式
 					if(email.getAttachmentList()!=null){
@@ -79,6 +89,24 @@ public class MailServiceImpl implements MailService {
 				}
 			}
 		});
+	}
+	
+	private String getMailList(String[] mailArray) {
+		StringBuffer toList = new StringBuffer();
+		int length = mailArray.length;
+		if (mailArray != null && length < 2) {
+			toList.append(mailArray[0]);
+		} else {
+			for (int i = 0; i < length; i++) {
+				toList.append(mailArray[i]);
+				if (i != (length - 1)) {
+					toList.append(",");
+				}
+
+			}
+		}
+		return toList.toString();
+
 	}
 
 }

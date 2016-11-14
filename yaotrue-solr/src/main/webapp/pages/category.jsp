@@ -22,8 +22,8 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<ul class="breadcrumb">
-						<li><a href="index.html">Home</a></li>
-						<li><a href="category.html">Category : Mobile</a></li>
+						<li><a href="${base }/">首页</a></li>
+						<li><a href="${base }/category.htm">分类页</a></li>
 					</ul>
 				</div>
 			</div>
@@ -37,14 +37,14 @@
 									<c:forEach items="${pagination.items }" var="sku1" begin="${eachend*3 }" end="${eachend*3 + 2 > fn:length(pagination.items) ? fn:length(pagination.items) : eachend*3 + 2 }">
 									<div class="col-lg-4 col-md-4 col-xs-12">
 										<div class="product">
-											<div class="image"><a href="product.html"><img src="${sku1.skuImgUrl }" /></a></div>
+											<div class="image"><a href="${sku1.tgUrl }" target="_blank"><img class="lazy" data-original="${sku1.skuImgUrl }" /></a></div>
 											<!-- <div class="buttons">
 												<a class="btn cart" href="#"><span class="glyphicon glyphicon-shopping-cart"></span></a>
 												<a class="btn wishlist" href="#"><span class="glyphicon glyphicon-heart"></span></a>
 												<a class="btn compare" href="#"><span class="glyphicon glyphicon-transfer"></span></a>
 											</div> -->
 											<div class="caption">
-												<div class="name"><h3><a href="product.html">${sku1.skuName }</a></h3></div>
+												<div class="name"><h3><a href="${sku1.tgUrl }" target="_blank">${sku1.skuName }</a></h3></div>
 												<div class="price">优惠价￥${sku1.price }</div>
 												<div class="rating">${sku1.platformName }&nbsp;${sku1.shopName }</div>
 											</div>

@@ -11,6 +11,12 @@
 
 <!-- jQuery and Modernizr-->
 <script src="${pageContext.request.contextPath}/resources/scripts/index/jquery-2.1.1.js"></script>
+<script src="${pageContext.request.contextPath}/resources/scripts/jquery.lazyload.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("img.lazy").lazyload({effect: "fadeIn"});
+})
+</script>
 
 <!-- Core JavaScript Files -->
 <script src="${pageContext.request.contextPath}/resources/scripts/index/bootstrap.min.js"></script>

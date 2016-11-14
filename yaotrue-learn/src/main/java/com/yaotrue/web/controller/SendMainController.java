@@ -74,7 +74,7 @@ public class SendMainController {
 			
 			Map<String, Object> params = new HashMap<String,Object>();
 			params.put("receiver", "1019894597@qq.com");
-			emailTemplateManager.sendEmail(email, "hehe", params,emailAttachmentCommands);
+			emailTemplateManager.sendEmail(new String[]{email}, "hehe", params,emailAttachmentCommands);
 			response.getWriter().write("ok");
 		} catch (Exception e) {
 			e.printStackTrace();

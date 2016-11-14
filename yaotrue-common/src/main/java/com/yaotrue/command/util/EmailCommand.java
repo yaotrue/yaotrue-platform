@@ -36,6 +36,9 @@ public class EmailCommand extends Command {
 	
 	/** 收件人 **/
 	private String address;
+	
+	/**批量发送的收件人*/
+	private String[] addressArray;
 
 	/** 邮件主题 **/
 	private String subject;
@@ -82,6 +85,20 @@ public class EmailCommand extends Command {
 	 */
 	public void setAddress(String address) {
 		this.address = address;
+	}
+
+	/**
+	 * @return the addressArray
+	 */
+	public String[] getAddressArray() {
+		return addressArray;
+	}
+
+	/**
+	 * @param addressArray the addressArray to set
+	 */
+	public void setAddressArray(String[] addressArray) {
+		this.addressArray = addressArray;
 	}
 
 	/**

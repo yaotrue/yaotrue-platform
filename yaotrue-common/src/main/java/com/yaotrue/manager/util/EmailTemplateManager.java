@@ -42,5 +42,5 @@ public interface EmailTemplateManager {
 	 * @param dataMap 替换模板中数据
 	 * @param attachmentList 表示为附件列表
 	 */
-	public void sendEmail(String receiverEmail,String code,Map<String,Object> dataMap,List<EmailAttachmentCommand> attachmentList)throws Exception;
+	public void sendEmail(String[] receiverEmail,String code,Map<String,Object> dataMap,List<EmailAttachmentCommand> attachmentList)throws Exception;
 }

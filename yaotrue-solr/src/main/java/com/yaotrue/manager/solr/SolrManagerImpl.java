@@ -111,6 +111,11 @@ public class SolrManagerImpl implements SolrManager {
 	public Pagination<YaoTrueSku> findSkuByParams(Page page, Map<String, Object> params) {
 		SolrQuery solrQuery = new SolrQuery();
 		solrQuery.setQuery("*:*");
+		if(null != params){
+			if(null != params.get("keyword")){
+				solrQuery.addFilterQuery("testIk:"+(String)params.get("keyword"));
+			}
+		}
 		
 		solrQuery.setStart(page.getStart()).setRows(page.getSize());
 		

@@ -19,6 +19,8 @@ package com.yaotrue.web.controller;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -63,6 +65,15 @@ public class MainController {
 	public String category(Model model,@RequestParam(value="pageNo",defaultValue="1")Integer pageNo) {
 		model.addAttribute("pagination", solrManager.findSkuByParams(new Page(pageNo,30), null));
 		return "category";
+	}
+	
+	@RequestMapping("/search.htm")
+	public String search(Model model,@RequestParam(value="keyword",required=false)String keyword,@RequestParam(value="pageNo",defaultValue="1")Integer pageNo) {
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("keyword", keyword);
+		model.addAttribute("pagination", solrManager.findSkuByParams(new Page(pageNo,30), params));
+		model.addAttribute("keyword", keyword);
+		return "search";
 	}
 	
 	@RequestMapping("/skuUpload.htm")

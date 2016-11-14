@@ -6,52 +6,45 @@
 		<div class="wrap-footer">
 			<div class="row">
 				<div class="col-md-3 col-footer footer-1">
-					<img
-						src="${pageContext.request.contextPath}/resources/images/logofooter.png" />
-					<p>Lorem Ipsum is simply dummy text of the printing and
-						typesetting industry.Lorem Ipsum is simply dummy text of the
-						printing and typesetting industry.</p>
+					<%-- <img
+						src="${pageContext.request.contextPath}/resources/images/logofooter.png" /> --%>
+					<p>中文扒拉扒拉扒拉扒拉啦中文扒拉扒拉扒拉扒拉啦，中文扒拉扒拉扒拉扒拉啦。中文扒拉扒拉扒拉扒拉啦，中文扒拉扒拉扒拉扒拉啦中文扒拉扒拉扒拉扒拉啦中文扒拉扒拉扒拉扒拉啦。</p>
 				</div>
 				<div class="col-md-3 col-footer footer-2">
 					<div class="heading">
-						<h4>Customer Service</h4>
+						<h4>帮助信息</h4>
 					</div>
 					<ul>
-						<li><a href="#">About Us</a></li>
-						<li><a href="#">Delivery Information</a></li>
-						<li><a href="#">Privacy Policy</a></li>
-						<li><a href="#">Terms & Conditions</a></li>
-						<li><a href="#">Contact Us</a></li>
+						<li><a href="#">关于我们</a></li>
+						<li><a href="#">联系我们</a></li>
 					</ul>
 				</div>
 				<div class="col-md-3 col-footer footer-3">
 					<div class="heading">
-						<h4>My Account</h4>
+						<h4>友情链接</h4>
 					</div>
 					<ul>
-						<li><a href="#">My Account</a></li>
-						<li><a href="#">Brands</a></li>
-						<li><a href="#">Gift Vouchers</a></li>
-						<li><a href="#">Specials</a></li>
-						<li><a href="#">Site Map</a></li>
+						<li><a href="#">天猫</a></li>
+						<li><a href="#">京东</a></li>
+						<li><a href="#">百度</a></li>
+						<li><a href="#">hao123</a></li>
+						<li><a href="#">豆瓣</a></li>
 					</ul>
 				</div>
 				<div class="col-md-3 col-footer footer-4">
 					<div class="heading">
-						<h4>Contact Us</h4>
+						<h4>联系我们</h4>
 					</div>
 					<ul>
-						<li><span class="glyphicon glyphicon-home"></span>California,
-							United States 3000009</li>
-						<li><span class="glyphicon glyphicon-earphone"></span>+91
-							8866888111</li>
-						<li><span class="glyphicon glyphicon-envelope"></span>infor@yoursite.com</li>
+						<li><span class="glyphicon glyphicon-home"></span>上海市静安区万荣路1268号</li>
+						<li><span class="glyphicon glyphicon-earphone"></span>18973743246</li>
+						<li><span class="glyphicon glyphicon-envelope"></span>yaotrue@163.com</li>
 					</ul>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="copyright">
+	<%-- <div class="copyright">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6">
@@ -74,5 +67,5 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> --%>
 </footer>
