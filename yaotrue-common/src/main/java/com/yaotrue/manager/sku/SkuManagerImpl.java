@@ -70,7 +70,7 @@ public class SkuManagerImpl implements SkuManager {
 	        	if(row.getRowNum() == 0){
 	        		continue;
 	        	}
-	        	logger.info("cell 1 content:{}",row.getCell(1).getStringCellValue());
+	        	logger.info("row{}-cell 1 content:{}",row.getRowNum(),row.getCell(1).getStringCellValue());
 	        	
 	        	Sku sku = skuDao.getBySkuId(row.getCell(0).getStringCellValue());
 	        	if(null == sku){
