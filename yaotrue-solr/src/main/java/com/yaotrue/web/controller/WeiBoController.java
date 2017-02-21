@@ -28,7 +28,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import weibo4j.Oauth;
 import weibo4j.Timeline;
 import weibo4j.Users;
-import weibo4j.examples.oauth2.Log;
 import weibo4j.http.AccessToken;
 import weibo4j.model.Emotion;
 import weibo4j.model.User;

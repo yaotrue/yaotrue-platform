@@ -26,4 +26,9 @@ import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 @ContextConfiguration(locations = {"classpath*:yaotrue-spring.xml" })
 public class BaseTest extends AbstractJUnit4SpringContextTests {
 
+	public  static void main(String[] args) {
+		int i = 1_0_0_____0;
+		System.out.println(Math.PI);
+		//0.8999999999999999
+	}
 }

@@ -8,18 +8,19 @@ import javax.imageio.ImageIO;
 import javax.imageio.ImageReader;
 import javax.imageio.stream.MemoryCacheImageInputStream;
 
-import weibo4j.model.Constants;
-import weibo4j.model.WeiboException;
-
 import com.sun.imageio.plugins.bmp.BMPImageReader;
 import com.sun.imageio.plugins.gif.GIFImageReader;
 import com.sun.imageio.plugins.jpeg.JPEGImageReader;
 import com.sun.imageio.plugins.png.PNGImageReader;
 
+import weibo4j.model.Constants;
+import weibo4j.model.WeiboException;
+
 /**
  * 临时存储上传图片的内容，格式，文件信息等
  * 
  */
+@SuppressWarnings("restriction")
 public class ImageItem {
 	private byte[] content;
 	private String name;
@@ -62,6 +63,7 @@ public class ImageItem {
 		return contentType;
 	}
 
+	@SuppressWarnings({ "rawtypes" })
 	public static String getContentType(byte[] mapObj) throws IOException {
 
 		String type = "";

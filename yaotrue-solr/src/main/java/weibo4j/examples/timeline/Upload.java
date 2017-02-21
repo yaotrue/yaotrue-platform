@@ -31,6 +31,7 @@ public class Upload {
 		}
 	}
 
+	@SuppressWarnings("resource")
 	public static byte[] readFileImage(String filename) throws IOException {
 		BufferedInputStream bufferedInputStream = new BufferedInputStream(
 				new FileInputStream(filename));

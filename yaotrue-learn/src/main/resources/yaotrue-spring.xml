@@ -4,9 +4,11 @@
     xmlns:context="http://www.springframework.org/schema/context"
     xmlns:aop="http://www.springframework.org/schema/aop"
     xmlns:encryption="http://www.jasypt.org/schema/encryption"
+    xmlns:task="http://www.springframework.org/schema/task"
     xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
         http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.1.xsd
         http://www.jasypt.org/schema/encryption http://www.yaotrue.com/schema/encryption/jasypt-spring31-encryption-1.xsd">                    
     <aop:aspectj-autoproxy />
 	<context:annotation-config />
@@ -14,6 +16,17 @@
 	<context:component-scan base-package="com.yaotrue.**.dao"/>
 	<context:component-scan base-package="com.yaotrue.**.manager"/>
 	<context:component-scan base-package="com.yaotrue.**.event"/>
+	
+	<!-- <task:executor id="myexecutor" pool-size="5" />
+	<task:annotation-driven executor="myexecutor" /> -->
+	
+	<task:annotation-driven executor="customerAsyncTaskExecutor" scheduler="defaultTaskScheduler" />
+	<bean id="customerAsyncTaskExecutor"
+		class="com.yaotrue.manager.CustomerAsyncTaskExecutor">
+		<constructor-arg ref="defaultTaskExecutor" />
+	</bean>
+	<task:executor id="defaultTaskExecutor" pool-size="5" />
+	<task:scheduler id="defaultTaskScheduler" pool-size="1" />
 	
 	<import resource="spring/spring-schedu.xml" />
 	<import resource="spring/spring-mail.xml" />

@@ -83,6 +83,7 @@
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
 					data-toggle="dropdown">超级划算</a></li>
 				<li><a href="category.htm">热门活动</a></li>
+				<li><a href="${base }/navigation.htm">网址导航</a></li>
 			</ul>
 		</div>
 	</div>

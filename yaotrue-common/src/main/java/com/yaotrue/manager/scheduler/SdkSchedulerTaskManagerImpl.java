@@ -41,7 +41,7 @@ public class SdkSchedulerTaskManagerImpl implements SdkSchedulerTaskManager {
 			schedulerTask.setBeanName("tmall20161111TgManager");
 			schedulerTask.setCode("job"+i);
 			schedulerTask.setMethodName("sendEmail");
-			schedulerTask.setTimeExp("0 0/10 * * * ?");
+			schedulerTask.setTimeExp("* * */4 * * ?");
 			schedulerTasks.add(schedulerTask);
 		}
 		return schedulerTasks;

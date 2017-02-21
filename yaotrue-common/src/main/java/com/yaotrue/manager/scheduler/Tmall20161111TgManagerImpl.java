@@ -48,7 +48,7 @@ public class Tmall20161111TgManagerImpl implements Tmall20161111TgManager {
 	public void sendEmail() {
 		logger.info("send email....");
 		List<EmailAttachmentCommand> emailAttachmentCommands = new ArrayList<EmailAttachmentCommand>();
-		EmailAttachmentCommand emailAttachmentCommand = new EmailAttachmentCommand();
+		/*EmailAttachmentCommand emailAttachmentCommand = new EmailAttachmentCommand();
 		emailAttachmentCommand.setName("2015天猫双11预售爆款抢先定.xls");
 		emailAttachmentCommand.setFilePath("E:/Me/life/yaotrue/2015天猫双11预售爆款抢先定.xls");
 		emailAttachmentCommands.add(emailAttachmentCommand);
@@ -61,7 +61,7 @@ public class Tmall20161111TgManagerImpl implements Tmall20161111TgManager {
 		EmailAttachmentCommand emailAttachmentCommand3 = new EmailAttachmentCommand();
 		emailAttachmentCommand3.setName("2016双11淘宝爆款清单.xls");
 		emailAttachmentCommand3.setFilePath("E:/Me/life/yaotrue/2016双11淘宝爆款清单.xls");
-		emailAttachmentCommands.add(emailAttachmentCommand3);
+		emailAttachmentCommands.add(emailAttachmentCommand3);*/
 		
 		Map<String, Object> params = new HashMap<String,Object>();
 		params.put("receiver", "1019894597@qq.com");

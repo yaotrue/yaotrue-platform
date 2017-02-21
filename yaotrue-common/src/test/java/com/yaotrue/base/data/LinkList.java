@@ -72,4 +72,16 @@ public class LinkList {
 			System.out.println("---------------");
 		}
 	}
+	
+	@Test
+	public void testData(){
+		boolean falg = false;
+		char c = 'a';
+		byte b = 124;
+		short s = 100;
+		int i = 1000;
+		long l = 2000l;
+		float f = 12.3f;
+		double d = 3.141592;
+	}
 }

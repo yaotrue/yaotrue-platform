@@ -14,34 +14,31 @@
  * THIS SOFTWARE OR ITS DERIVATIVES.
  *
  */
-package com.yaotrue.base.jdkutil;
+package com.yaotrue.framework.spring.async;
 
-import java.util.Arrays;
-import java.util.GregorianCalendar;
-import java.util.UUID;
-
-import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.scheduling.annotation.Async;
 
 /**
  * @author <a href="mailto:zhen.yao@baozun.cn">zhen.yao</a>
- * 2016年6月22日 下午4:29:29
+ * 2016年11月17日 下午1:04:37
  */
-public class UUIDTest {
-
-	private static final Logger logger = LoggerFactory.getLogger(UUIDTest.class);
+public class AsyncMain {
 	
-	@Test
-	public void testUUID(){
-		UUID uuid = UUID.randomUUID();
-		logger.info("uuid random value:{}",uuid);
-		
-		int a[] = new int[100];
-		Arrays.copyOf(a, a.length);
-		String string = "hello hhh";
-		System.out.println(string.codePointCount(0, string.length()));
-		
-		GregorianCalendar gregorianCalendar = new GregorianCalendar();
+	private static final Logger logger = LoggerFactory.getLogger(AsyncMain.class);
+
+	@Async
+	public static void testhhh(){
+		logger.info("11111111111");
+		int i = 0;
+		while(true){
+			i++;
+			logger.info("i="+i);
+			if(i == 1000){
+				break;
+			}
+		}
+		logger.info("22222222222");
 	}
 }

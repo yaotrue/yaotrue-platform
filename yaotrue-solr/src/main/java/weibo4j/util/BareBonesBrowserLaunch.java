@@ -30,7 +30,8 @@ public class BareBonesBrowserLaunch {
         }
     }
 
-    private static void browse(String url) throws ClassNotFoundException, IllegalAccessException,
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	private static void browse(String url) throws ClassNotFoundException, IllegalAccessException,
             IllegalArgumentException, InterruptedException, InvocationTargetException, IOException,
             NoSuchMethodException {
         String osName = System.getProperty("os.name", "");

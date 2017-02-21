@@ -23,6 +23,7 @@ public class Tag extends WeiboResponse {
 	
 	private String weight;
 
+	@SuppressWarnings("unchecked")
 	public Tag(JSONObject json) throws WeiboException, JSONException {			
 			if (!json.getString("id").isEmpty()) {
 				id = json.getString("id"); 

@@ -123,7 +123,7 @@ public class HttpClient implements java.io.Serializable {
 	org.apache.commons.httpclient.HttpClient client = null;
 
 	private MultiThreadedHttpConnectionManager connectionManager;
-	private int maxSize;
+//	private int maxSize;
 
 	public HttpClient() {
 		this(150, 30000, 30000, 1024 * 1024);
@@ -144,7 +144,7 @@ public class HttpClient implements java.io.Serializable {
 				connectionManager);
 		Protocol myhttps = new Protocol("https", new MySSLSocketFactory(), 443);
 		Protocol.registerProtocol("https", myhttps);
-		this.maxSize = maxSize;
+//		this.maxSize = maxSize;
 		// 支持proxy
 		if (proxyHost != null && !proxyHost.equals("")) {
 			client.getHostConfiguration().setProxy(proxyHost, proxyPort);

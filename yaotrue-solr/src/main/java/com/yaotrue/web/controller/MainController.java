@@ -61,6 +61,11 @@ public class MainController {
 		return "index";
 	}
 	
+	@RequestMapping("/navigation.htm")
+	public String navigation(Model model) {
+		return "navigation";
+	}
+	
 	@RequestMapping("/category.htm")
 	public String category(Model model,@RequestParam(value="pageNo",defaultValue="1")Integer pageNo) {
 		model.addAttribute("pagination", solrManager.findSkuByParams(new Page(pageNo,30), null));

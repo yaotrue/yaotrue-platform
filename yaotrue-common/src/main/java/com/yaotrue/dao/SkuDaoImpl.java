@@ -105,7 +105,7 @@ public class SkuDaoImpl implements SkuDao {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public List<Sku> findAllSku() {
-		return (ArrayList<Sku>)jdbcTemplate.query("select * from t_yt_sku order by id", new BeanPropertyRowMapper(Sku.class));
+		return (ArrayList<Sku>)jdbcTemplate.query("select id,category_name AS categoryName,commission,income_rate AS incomeRate,online_time as onLineTime,platform_name AS platformName,price,sales_count AS salesCount,shop_name AS shopName,sku_detail_url AS skuDetailUrl,sku_id AS skuId,sku_img_url AS skuImgUrl,sku_name AS skuName,status,tg_url AS tgUrl,view_count AS viewCount from t_yt_sku order by id", new BeanPropertyRowMapper(Sku.class));
 	}
 
 	/* (non-Javadoc)
@@ -114,7 +114,7 @@ public class SkuDaoImpl implements SkuDao {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public Sku getBySkuId(String skuId) {
-		List<Sku> skus = ((ArrayList<Sku>)jdbcTemplate.query("select * from t_yt_sku where sku_id=?", new Object[]{skuId}, new BeanPropertyRowMapper(Sku.class)));
+		List<Sku> skus = ((ArrayList<Sku>)jdbcTemplate.query("select id,category_name AS categoryName,commission,income_rate AS incomeRate,online_time as onLineTime,platform_name AS platformName,price,sales_count AS salesCount,shop_name AS shopName,sku_detail_url AS skuDetailUrl,sku_id AS skuId,sku_img_url AS skuImgUrl,sku_name AS skuName,status,tg_url AS tgUrl,view_count AS viewCount from t_yt_sku where sku_id=?", new Object[]{skuId}, new BeanPropertyRowMapper(Sku.class)));
 		if(null == skus || 0 == skus.size()){
 			return null;
 		}

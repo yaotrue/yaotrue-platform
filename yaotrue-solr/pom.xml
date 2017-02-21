@@ -114,8 +114,8 @@
 				<version>2.0-beta-1</version>
 				<configuration>
 					<!-- http port -->
-					<port>8099</port>
-					<path>/yaotruesolr</path>
+					<port>80</port>
+					<path>/</path>
 					<uriEncoding>utf-8</uriEncoding>
 					<ignorePackaging>true</ignorePackaging>
 					<systemProperties>

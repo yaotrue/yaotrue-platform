@@ -21,6 +21,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.concurrent.Future;
 
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Row;
@@ -30,6 +31,8 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.scheduling.annotation.AsyncResult;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -106,6 +109,26 @@ public class SkuManagerImpl implements SkuManager {
 			}
 		}
 		return null;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.yaotrue.manager.sku.SkuManager#getCodeByAsync()
+	 */
+	@Override
+	@Async
+	public Future<String> getCodeByAsync() {
+		logger.info("get code begin");
+		try {
+			Thread.sleep(1000*5);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		if(1 == 1){
+			throw new RuntimeException("test exception");
+		}
+		return new AsyncResult<String>("hello world !!!!");
 	}
 
 }

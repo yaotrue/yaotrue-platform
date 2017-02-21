@@ -17,6 +17,7 @@
 package com.yaotrue.manager.sku;
 
 import java.io.File;
+import java.util.concurrent.Future;
 
 import com.yaotrue.command.web.ControllerJsonResponceCommand;
 
@@ -27,4 +28,6 @@ import com.yaotrue.command.web.ControllerJsonResponceCommand;
 public interface SkuManager {
 
 	ControllerJsonResponceCommand saveSkuByFile(File file);
+	
+	Future<String> getCodeByAsync();
 }
