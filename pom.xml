@@ -244,6 +244,8 @@
 		<module>yaotrue-common</module>
 		<module>yaotrue-learn</module>
     	<module>yaotrue-solr</module>
+    	<module>yaotrue-mysql</module>
+    	<module>yaotrue-redis</module>
   	</modules>
 
 	<build>
