@@ -37,7 +37,7 @@ import com.yaotrue.model.sku.Sku;
 /**
  * @author <a href="mailto:zhen.yao@baozun.cn">zhen.yao</a> 2016年11月1日 下午2:56:03
  */
-@Repository
+//@Repository
 public class SkuDaoImpl implements SkuDao {
 
 	private static final Logger logger = LoggerFactory.getLogger(SkuDaoImpl.class);

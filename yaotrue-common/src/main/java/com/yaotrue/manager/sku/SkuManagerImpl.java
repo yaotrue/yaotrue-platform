@@ -44,7 +44,7 @@ import com.yaotrue.model.sku.Sku;
  * @author <a href="mailto:zhen.yao@baozun.cn">zhen.yao</a>
  * 2016年11月1日 下午2:15:52
  */
-@Service
+//@Service
 @Transactional
 public class SkuManagerImpl implements SkuManager {
 	

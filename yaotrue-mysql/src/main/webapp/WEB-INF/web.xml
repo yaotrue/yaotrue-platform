@@ -1,7 +1,17 @@
 <web-app xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
-    http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd" version="2.4">
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
+    http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+	version="2.4">
 
 	<display-name>yaotrue_solr</display-name>
-	
+
+	<servlet>
+		<servlet-name>MyServlet</servlet-name>
+		<servlet-class>com.yaotrue.base.web.servlet.MyServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>MyServlet</servlet-name>
+		<url-pattern>/servlet</url-pattern>
+	</servlet-mapping>
 </web-app>

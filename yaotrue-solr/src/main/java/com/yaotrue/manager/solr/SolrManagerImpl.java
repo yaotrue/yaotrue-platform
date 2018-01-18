@@ -40,7 +40,7 @@ import com.yaotrue.model.solr.YaoTrueSku;
 /**
  * @author <a href="mailto:zhen.yao@baozun.cn">zhen.yao</a> 2016年11月1日 下午3:59:40
  */
-@Service
+//@Service
 @Transactional
 public class SolrManagerImpl implements SolrManager {
 
@@ -120,7 +120,7 @@ public class SolrManagerImpl implements SolrManager {
 		solrQuery.setStart(page.getStart()).setRows(page.getSize());
 		
 		try {
-			QueryResponse rResponse = solrServer.query(solrQuery);
+			QueryResponse rResponse = null;
 			Pagination<YaoTrueSku> pagination = new Pagination<YaoTrueSku>();		
 			pagination.setCount(rResponse.getResults().getNumFound());
 			pagination.setCurrentPage((page.getStart()/page.getSize()) + 1);
@@ -129,7 +129,7 @@ public class SolrManagerImpl implements SolrManager {
 			pagination.setTotalPages((int)pagination.getCount()/page.getSize() + (pagination.getCount()%page.getSize() == 0 ? 0 : 1));
 			pagination.setSize(page.getSize());
 			return pagination;
-		} catch (SolrServerException e) {
+		} catch (Exception e) {
 			e.printStackTrace();;
 		}
 		return null;
