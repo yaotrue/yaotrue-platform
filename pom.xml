@@ -269,6 +269,7 @@
     	<module>yaotrue-mysql</module>
     	<module>yaotrue-redis</module>
     	<module>yaotrue-web</module>
+    	<module>shiro-web</module>
   </modules>
 
 	<build>
