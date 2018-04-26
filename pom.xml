@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.yaotrue</groupId>
@@ -20,6 +19,22 @@
 		<!-- 轻易不要升级这两个jar -->
 		<version.hibernate>3.5.1-Final</version.hibernate>
 		<version.hibernate-annotations>3.5.1-Final</version.hibernate-annotations>
+		
+		<v.maven-clean-plugin>2.6.1</v.maven-clean-plugin>
+		<v.maven-compiler-plugin>3.3</v.maven-compiler-plugin>
+
+		<v.maven-dependency-plugin>2.10</v.maven-dependency-plugin>
+
+		<v.maven-install-plugin>2.5.2</v.maven-install-plugin>
+		<v.maven-jar-plugin>2.6</v.maven-jar-plugin>
+		<v.maven-surefire-plugin>2.17</v.maven-surefire-plugin>
+		<v.maven-source-plugin>2.4</v.maven-source-plugin>
+		
+		<!-- **********************begin maven-compiler-plugin config******************************************* -->
+		<maven-compiler-plugin.source>1.8</maven-compiler-plugin.source>
+		<maven-compiler-plugin.target>1.8</maven-compiler-plugin.target>
+		<maven-compiler-plugin.encoding>${project.build.sourceEncoding}</maven-compiler-plugin.encoding>
+		<!-- **********************end maven-compiler-plugin config******************************************* -->
 	</properties>
 
 	<dependencies>
@@ -225,6 +240,13 @@
 		    <artifactId>commons-io</artifactId>
 		    <version>2.5</version>
 		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.apache.zookeeper/zookeeper -->
+		<dependency>
+		    <groupId>org.apache.zookeeper</groupId>
+		    <artifactId>zookeeper</artifactId>
+		    <version>3.4.11</version>
+		</dependency>
 	</dependencies>
 
 	<repositories>
@@ -246,7 +268,8 @@
     	<module>yaotrue-solr</module>
     	<module>yaotrue-mysql</module>
     	<module>yaotrue-redis</module>
-  	</modules>
+    	<module>yaotrue-web</module>
+  </modules>
 
 	<build>
 		<plugins>
@@ -257,6 +280,96 @@
 				<configuration>
 					<skipTests>true</skipTests>
 				</configuration>
+			</plugin>
+			
+			<!-- maven-surefire-plugin -->
+			<plugin>
+				<inherited>true</inherited>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>${v.maven-surefire-plugin}</version>
+				<configuration>
+					<!-- 跳过测试 -->
+					<skip>true</skip>
+				</configuration>
+			</plugin>
+
+			<!-- maven-clean-plugin插件 -->
+			<plugin>
+				<inherited>true</inherited>
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>${v.maven-clean-plugin}</version>
+				<executions>
+					<execution>
+						<id>default-clean</id>
+						<phase>clean</phase>
+						<goals>
+							<goal>clean</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- maven-install-plugin插件 -->
+			<plugin>
+				<inherited>true</inherited>
+				<artifactId>maven-install-plugin</artifactId>
+				<version>${v.maven-install-plugin}</version>
+				<executions>
+					<execution>
+						<id>default-install</id>
+						<phase>install</phase>
+						<goals>
+							<goal>install</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			
+			<!-- maven-compiler-plugin -->
+			<plugin>
+				<!-- true or false，是否此插件配置将会应用于poms，那些继承于此的项目 -->
+				<inherited>true</inherited>
+
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${v.maven-compiler-plugin}</version>
+				<configuration>
+					<!-- 指定高版本的源码和编译后的字节码文件 -->
+					<source>${maven-compiler-plugin.source}</source>
+					<target>${maven-compiler-plugin.target}</target>
+					<encoding>${maven-compiler-plugin.encoding}</encoding>
+					<!-- <verbose>true</verbose> -->
+					<detail>true</detail>
+				</configuration>
+			</plugin>
+
+			<!-- maven-jar-plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>${v.maven-jar-plugin}</version>
+				<configuration>
+					<archive>
+						<addMavenDescriptor>false</addMavenDescriptor>
+					</archive>
+				</configuration>
+			</plugin>
+
+			<!-- maven-source-plugin -->
+			<plugin>
+				<inherited>true</inherited>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>${v.maven-source-plugin}</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
