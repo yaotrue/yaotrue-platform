@@ -1,15 +1,15 @@
 /**
- * Copyright (c) 2012 Baozun All Rights Reserved.
+ * Copyright (c) 2012 YaoTrue All Rights Reserved.
  *
- * This software is the confidential and proprietary information of Baozun.
+ * This software is the confidential and proprietary information of YaoTrue.
  * You shall not disclose such Confidential Information and shall use it only in
  * accordance with the terms of the license agreement you entered into
- * with Baozun.
+ * with YaoTrue.
  *
- * BAOZUN MAKES NO REPRESENTATIONS OR WARRANTIES ABOUT THE SUITABILITY OF THE
+ * YaoTrue MAKES NO REPRESENTATIONS OR WARRANTIES ABOUT THE SUITABILITY OF THE
  * SOFTWARE, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
  * IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
- * PURPOSE, OR NON-INFRINGEMENT. BAOZUN SHALL NOT BE LIABLE FOR ANY DAMAGES
+ * PURPOSE, OR NON-INFRINGEMENT. YaoTrue SHALL NOT BE LIABLE FOR ANY DAMAGES
  * SUFFERED BY LICENSEE AS A RESULT OF USING, MODIFYING OR DISTRIBUTING
  * THIS SOFTWARE OR ITS DERIVATIVES.
  *
@@ -23,14 +23,14 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
- * @author <a href="mailto:zhen.yao@baozun.cn">zhen.yao</a>
+ * @author <a href="mailto:yaotrue@163.com">yaotrue</a>
  * 2016年5月19日 下午6:13:58
  */
 public class XXXTest {
 	
 	/**
 	 * 在所有测试开始之前执行 只会执行一次 修饰的方法必须是共有的静态方法（public static）
-	 * @author <a href="mailto:zhen.yao@baozun.cn">zhen.yao</a>
+	 * @author <a href="mailto:yaotrue@163.com">yaotrue</a>
 	 * @since JDK 1.7
 	 */
 	@BeforeClass
@@ -40,7 +40,7 @@ public class XXXTest {
 
 	/**
 	 * 在所有测试结束之后执行 只会执行一次 修饰的方法必须是共有的静态方法（public static）
-	 * @author <a href="mailto:zhen.yao@baozun.cn">zhen.yao</a>
+	 * @author <a href="mailto:yaotrue@163.com">yaotrue</a>
 	 * @since JDK 1.7
 	 */
 	@AfterClass
@@ -50,7 +50,7 @@ public class XXXTest {
 	
 	/**
 	 * 在每个测试方法前执行
-	 * @author <a href="mailto:zhen.yao@baozun.cn">zhen.yao</a>
+	 * @author <a href="mailto:yaotrue@163.com">yaotrue</a>
 	 * @since JDK 1.7
 	 */
 	@Before
@@ -60,7 +60,7 @@ public class XXXTest {
 	
 	/**
 	 * 在每个测试方法后执行
-	 * @author <a href="mailto:zhen.yao@baozun.cn">zhen.yao</a>
+	 * @author <a href="mailto:yaotrue@163.com">yaotrue</a>
 	 * @since JDK 1.7
 	 */
 	@After

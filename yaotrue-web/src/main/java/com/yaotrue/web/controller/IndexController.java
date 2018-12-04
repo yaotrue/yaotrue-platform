@@ -21,7 +21,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindException;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.captcha.botdetect.web.servlet.SimpleCaptcha;
+import com.yaotrue.web.command.BasicExample;
 
 /**
  * @author <a href="mailto:yaotrue@163.com">yaotrue</a>
@@ -36,6 +41,25 @@ public class IndexController {
 	public String index(Model model,HttpServletRequest request){
 		logger.info("---------index----------");
 		model.addAttribute("msg", "hello springmvc");
+		return "index";
+	}
+	
+	@RequestMapping("/testCaptch")
+	public String validate(Model model,HttpServletRequest request,@ModelAttribute("basicExample") BasicExample basicExample){
+	    
+	    // validate the Captcha to check we're not dealing with a bot
+	    SimpleCaptcha captcha = SimpleCaptcha.load(request, "basicExample");
+	    boolean isHuman = captcha.validate(basicExample.getCaptchaCode());
+	    if (isHuman) {
+	      basicExample.setCaptchaCorrect("Correct code");
+	      basicExample.setCaptchaIncorrect("");
+	    } else {
+	      basicExample.setCaptchaCorrect("");
+	      basicExample.setCaptchaIncorrect("Incorrect code");
+	    }
+	    
+	    basicExample.setCaptchaCode("");
+	    model.addAttribute("basicExample", basicExample);
 		return "index";
 	}
 }

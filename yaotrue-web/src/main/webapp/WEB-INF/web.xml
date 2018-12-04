@@ -52,6 +52,25 @@
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 	
+	<!-- 验证码 -->
+	<servlet>
+		<servlet-name>securityImageServlet</servlet-name>
+		<servlet-class>com.yaotrue.web.servlet.SecurityImageServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>securityImageServlet</servlet-name>
+		<url-pattern>/servlet/securityImage</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	  <servlet-name>BotDetect Captcha</servlet-name>
+	  <servlet-class>com.captcha.botdetect.web.servlet.SimpleCaptchaServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	  <servlet-name>BotDetect Captcha</servlet-name>
+	  <url-pattern>/botdetectcaptcha</url-pattern>
+	</servlet-mapping>
+	
 	<session-config>
 		<session-timeout>60</session-timeout>
 	</session-config>

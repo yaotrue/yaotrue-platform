@@ -1,15 +1,15 @@
 /**
- * Copyright (c) 2012 Baozun All Rights Reserved.
+ * Copyright (c) 2012 YaoTrue All Rights Reserved.
  *
- * This software is the confidential and proprietary information of Baozun.
+ * This software is the confidential and proprietary information of YaoTrue.
  * You shall not disclose such Confidential Information and shall use it only in
  * accordance with the terms of the license agreement you entered into
- * with Baozun.
+ * with YaoTrue.
  *
- * BAOZUN MAKES NO REPRESENTATIONS OR WARRANTIES ABOUT THE SUITABILITY OF THE
+ * YaoTrue MAKES NO REPRESENTATIONS OR WARRANTIES ABOUT THE SUITABILITY OF THE
  * SOFTWARE, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
  * IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
- * PURPOSE, OR NON-INFRINGEMENT. BAOZUN SHALL NOT BE LIABLE FOR ANY DAMAGES
+ * PURPOSE, OR NON-INFRINGEMENT. YaoTrue SHALL NOT BE LIABLE FOR ANY DAMAGES
  * SUFFERED BY LICENSEE AS A RESULT OF USING, MODIFYING OR DISTRIBUTING
  * THIS SOFTWARE OR ITS DERIVATIVES.
  *
@@ -31,7 +31,7 @@ import com.yaotrue.command.util.EmailAttachmentCommand;
 import com.yaotrue.manager.util.EmailTemplateManager;
 
 /**
- * @author <a href="mailto:zhen.yao@baozun.cn">zhen.yao</a>
+ * @author <a href="mailto:yaotrue@163.com">yaotrue</a>
  * 2016年11月10日 下午1:37:22
  */
 public class TestSendMail extends BaseTest {
@@ -94,7 +94,7 @@ public class TestSendMail extends BaseTest {
 	 * TODO(这里描述这个方法的使用方法 – 可选).<br/>
 	 * TODO(这里描述这个方法的注意事项 – 可选).<br/>
 	 *
-	 * @author <a href="mailto:zhen.yao@baozun.cn">zhen.yao</a>
+	 * @author <a href="mailto:yaotrue@163.com">yaotrue</a>
 	 * @return
 	 * @since JDK 1.7
 	 */

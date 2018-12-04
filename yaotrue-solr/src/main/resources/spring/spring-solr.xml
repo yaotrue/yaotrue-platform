@@ -12,7 +12,7 @@
 	
 	<!-- <bean id="solrClinet" class="org.apache.solr.client.solrj.impl.CloudSolrClient">
 		<constructor-arg index="0">
-			<value>zookeeper01.public.test.baozun.cn:2181,zookeeper02.public.test.baozun.cn:2181,zookeeper03.public.test.baozun.cn:2181</value>
+			<value>zookeeper01.public.test.yaotrue.cn:2181,zookeeper02.public.test.yaotrue.cn:2181,zookeeper03.public.test.yaotrue.cn:2181</value>
 		</constructor-arg>
 		<property name="defaultCollection" value="it-test" />
 		<property name="zkClientTimeout" value="20000" />

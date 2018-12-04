@@ -68,6 +68,13 @@
 			<artifactId>logback-classic</artifactId>
 			<version>${logback.version}</version>
 		</dependency>
+		
+		<!-- botdetect验证码 -->
+		<dependency>
+		  <groupId>com.captcha</groupId>
+		  <artifactId>botdetect-jsp20</artifactId>
+		  <version>4.0.beta3.2</version>
+		</dependency>
 	</dependencies>
 	
 	<build>
@@ -91,4 +98,12 @@
 			</plugin>
 		</plugins>
 	</build>
+	
+	<repositories>
+		<repository>
+		  <id>captcha</id>
+		  <name>BotDetect Captcha Repository</name>
+		  <url>https://git.captcha.com/maven.git/blob_plain/HEAD:/</url>
+		</repository>
+	</repositories>
 </project>
